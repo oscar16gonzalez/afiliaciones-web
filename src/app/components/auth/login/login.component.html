@@ -1,0 +1,32 @@
+<div>
+    <div class="shadow p-3 mb-5 bg-white rounded  col-sm divFormUser">
+        <h4 class="textFormUser">INICIAR SESION</h4>
+        <hr>
+        <form [formGroup]="formLoginUser" (ngSubmit)="loginUser()">
+            <div class="form-group formUser">
+                <label>Correo</label>
+                <input class="form-control" type="email" placeholder="Correo" [(ngModel)]="userDataLogin.correo" formControlName="correo" [class.is-invalid]="formLoginUser.get('correo')?.invalid && formLoginUser.get('correo')?.touched">
+                <small class="text-danger" *ngIf="formLoginUser.get('correo')?.invalid && formLoginUser.get('correo')?.touched">
+                        El correo es requerido
+                    </small>
+            </div>
+
+            <div class="form-group formUser">
+                <label>Contraseña</label>
+                <input class="form-control" type="password" placeholder="Contraseña" [(ngModel)]="userDataLogin.password" formControlName="password" [class.is-invalid]="formLoginUser.get('password')?.invalid && formLoginUser.get('password')?.touched">
+                <small class="text-danger" *ngIf="formLoginUser.get('rol')?.invalid && formLoginUser.get('rol')?.touched">
+                        La contraseña es requerida
+                    </small>
+            </div>
+
+            <div class="form-group ">
+                <label class="col-2 col-form-label">&nbsp;</label>
+                <div class="input-group col-md-8">
+                    <button type="submit" class="btn btn-login btn-outline-primary btn-block" [disabled]="formLoginUser.status === 'INVALID'">
+                    INICIAR SESION
+                  </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

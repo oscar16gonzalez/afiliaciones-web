@@ -1,0 +1,17 @@
+.formUser {
+    padding-top: 5px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnMembership {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+}
+
+.textFormUser {
+    text-align: center;
+}

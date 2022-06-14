@@ -1,0 +1,80 @@
+<div class="container-fluid shadow-none p-3 mb-5 bg-light rounded">
+    <div class="shadow p-3 mb-5 bg-white rounded  col-sm divFormUser">
+        <h4 class="textFormUser">CREAR USUARIOS</h4>
+        <hr>
+        <form [formGroup]="formRegister" (ngSubmit)="saveDataForm()">
+            <div class="form-group formUser">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input class="form-control" type="text" placeholder="Nombre" [(ngModel)]="user.nombre" formControlName="nombre" [class.is-invalid]="formRegister.get('nombre')?.invalid && formRegister.get('nombre')?.touched">
+                <small class="text-danger" *ngIf="formRegister.get('nombre')?.invalid && formRegister.get('nombre')?.touched">
+                            El nombre es requerido
+                        </small>
+            </div>
+
+            <div class="form-group formUser">
+                <label for="exampleInputEmail1">Apellido</label>
+                <input class="form-control" type="text" placeholder="Apellido" [(ngModel)]="user.apellido" formControlName="apellido" [class.is-invalid]="formRegister.get('apellido')?.invalid && formRegister.get('apellido')?.touched">
+                <small class="text-danger" *ngIf="formRegister.get('apellido')?.invalid && formRegister.get('apellido')?.touched">
+                            El apellido es requerido
+                        </small>
+            </div>
+
+            <div class="form-group formUser">
+                <label for="exampleInputEmail1">Correo</label>
+                <input class="form-control" type="email" placeholder="Correo" [(ngModel)]="user.correo" formControlName="correo" [class.is-invalid]="formRegister.get('correo')?.invalid && formRegister.get('correo')?.touched">
+                <small class="text-danger" *ngIf="formRegister.get('correo')?.invalid && formRegister.get('correo')?.touched">
+                            El correo es requerido
+                        </small>
+            </div>
+
+            <div class="form-group formUser">
+                <label for="exampleInputEmail1">Celular</label>
+                <input class="form-control" type="tel" placeholder="Celular" [(ngModel)]="user.celular" formControlName="celular" [class.is-invalid]="formRegister.get('celular')?.invalid && formRegister.get('celular')?.touched">
+                <small class="text-danger" *ngIf="formRegister.get('celular')?.invalid && formRegister.get('celular')?.touched">
+                            El celular es requerido
+                        </small>
+            </div>
+
+            <div class="form-group formUser">
+                <label for="exampleInputEmail1">Direccion</label>
+                <input class="form-control" type="text" placeholder="Direccion" [(ngModel)]="user.direccion" formControlName="direccion" [class.is-invalid]="formRegister.get('direccion')?.invalid && formRegister.get('direccion')?.touched">
+                <small class="text-danger" *ngIf="formRegister.get('direccion')?.invalid && formRegister.get('direccion')?.touched">
+                            La direccion es requerida
+                        </small>
+            </div>
+
+            <div class="form-group formUser">
+                <label>ROL</label>
+                <select id="inputState" class="form-control" [(ngModel)]="user.roles" formControlName="roles" [class.is-invalid]="formRegister.get('roles')?.invalid && formRegister.get('roles')?.touched">
+                        <option *ngFor="let option of rolSelected" [value]="option.name" selected>{{option.name}}</option>  
+                    </select>
+            </div>
+
+            <div class="form-group formUser">
+                <label for="exampleInputEmail1">Contraseña</label>
+                <input class="form-control" type="password" placeholder="Contraseña" [(ngModel)]="user.password" formControlName="password" [class.is-invalid]="formRegister.get('password')?.invalid && formRegister.get('password')?.touched">
+                <small class="text-danger" *ngIf="formRegister.get('rol')?.invalid && formRegister.get('rol')?.touched">
+                            La contraseña es requerida
+                        </small>
+            </div>
+
+            <div class="form-group ">
+                <label class="col-2 col-form-label">&nbsp;</label>
+                <div class="input-group col-md-8">
+                    <button type="submit" class="btn btn-outline-primary btn-block" [disabled]="formRegister.status === 'INVALID'">
+                        CREAR USUARIO
+                      </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<!-- <pre>
+    STATUS FORM = {{formRegister.status}}
+    STATUS  = {{formRegister.value | json}}
+</pre> -->
